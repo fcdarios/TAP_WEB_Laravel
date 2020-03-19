@@ -37,11 +37,13 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $blog = new Blog();
-        $blog->title = $request->get('title');
-        $blog->content = $request->get('content');
-        $blog->image = $request->get('image');
-        $blog->created_date = getdate('Y-m-d');
+        $blog->titulo = $request->get('titulo');
+        $blog->contenido = $request->get('contenido');
+        $blog->autor = $request->get('autor');
+        $blog->imagen = $request->get('imagen');
+        $blog->fecha_creacion = date('Y-m-d');
         $blog->save();
+        return redirect('/admin/blog')->with('success', 'Registro guardado correctamente');
     }
 
     /**

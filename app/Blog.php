@@ -8,4 +8,5 @@ class Blog extends Model
 {
     //
     protected $table = 'blog';
+    public $timestamps = false;
 }

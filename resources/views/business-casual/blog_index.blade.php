@@ -4,6 +4,11 @@
 
         <div class="row">
             <div class="box">
+                @if(session()->get('success'))
+                    <div class="alert alert-success text-center">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">Pagina de administrador de Posts
