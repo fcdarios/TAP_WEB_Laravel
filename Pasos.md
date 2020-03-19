@@ -40,3 +40,8 @@ Contenido:
     @endsection
 #####Paso 5: Listar Blogs para su pagina de administracion
 
+
+#####Paso 6: Instalar laravel Collective
+    composer require laravelcollective/html
+#####Paso 7: 
+

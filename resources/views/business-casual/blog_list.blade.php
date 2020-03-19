@@ -11,9 +11,8 @@
                     <hr>
                 </div>
                 <div class="col-lg-12">
-                    <a href="#" class="btn btn-success btn-lg">New</a>
+                    <a href="{{ route('admin.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> New</a>
                 </div>
-
                 <table class="table">
                     <thead class="thead-dark">
                       <tr>

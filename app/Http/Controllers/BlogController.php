@@ -25,7 +25,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view(('admin/blog_create'));
     }
 
     /**
@@ -36,7 +36,12 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $blog = new Blog();
+        $blog->title = $request->get('title');
+        $blog->content = $request->get('content');
+        $blog->image = $request->get('image');
+        $blog->created_date = getdate('Y-m-d');
+        $blog->save();
     }
 
     /**

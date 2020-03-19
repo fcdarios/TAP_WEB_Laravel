@@ -42,7 +42,7 @@
                     </li>
                     <li><a href="{{route('blog')}}">Blog</a>
                     </li>
-                    <li><a href="{{route('index')}}">Blog Admin</a>
+                    <li><a href="{{route('admin.blog')}}">Blog Admin</a>
                     </li>
                     <li><a href="{{route('contact')}}">Contact</a>
                     </li>
