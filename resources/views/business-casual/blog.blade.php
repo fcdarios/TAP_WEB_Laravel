@@ -1,4 +1,4 @@
-@extends('business-casual')
+@extends('business-casual.business-casual')
 
     @section('content')
 
