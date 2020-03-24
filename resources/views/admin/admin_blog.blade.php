@@ -18,7 +18,7 @@
                 <div class="col-lg-12">
                     <a href="{{ route('admin.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> New</a>
                 </div>
-                <table class="table">
+                <table id="blog-table" class="table">
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">Titulo</th>

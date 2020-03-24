@@ -21,6 +21,6 @@ class Blogseeder extends Seeder
 //            ]);
 //        }
          DB::table('blog')->truncate();
-        factory(App\Blog::class, 100)->create();
+        factory(App\Blog::class, 500)->create();
     }
 }

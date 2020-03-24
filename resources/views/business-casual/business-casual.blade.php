@@ -15,6 +15,8 @@
 
     <!-- Add custom CSS here -->
     <link href="{{asset('css/business-casual.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
 </head>
 
 <body>
@@ -74,6 +76,10 @@
     <!-- JavaScript -->
     <script src="{{asset('js/jquery-1.10.2.js')}}"></script>
     <script src="{{asset('js/bootstrap.js')}}"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="{{asset('js/business-casual.js')}}"></script>
+
+
     <script>
     // Activates the Carousel
     $('.carousel').carousel({

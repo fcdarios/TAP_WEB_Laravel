@@ -13,5 +13,14 @@
     php artisan db:seed --class=Blogseeder
 #### Crear [Factory](https://laravel.com/docs/6.x/database-testing#writing-factories) para los datos
     php artisan make:factory BlogFactory --model=Blog
+#### Implementar paginado de una tabla [DATA TABLES](https://datatables.net/)
+1. Importar los js y css de la libreria 
+2. Crear archivo js para implementar el codigo
+
+        $(document).ready(function() {
+            $('#blog-table').DataTable();
+        } );
+#### Revisar
+    https://laravel.com/docs/5.7/authentication#introduction-database-considerations
 
     
