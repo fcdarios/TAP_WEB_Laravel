@@ -7,4 +7,11 @@
     composer require laravelcollective/html
 #### Alertas Sweet-alert [documentation](https://realrashid.github.io/sweet-alert/install)  
     composer require realrashid/sweet-alert
+#### Clase Seeder para generar datos fake
+    php artisan make:seeder Blogseeder
+##### Para ejecutar el seeder
+    php artisan db:seed --class=Blogseeder
+#### Crear [Factory](https://laravel.com/docs/6.x/database-testing#writing-factories) para los datos
+    php artisan make:factory BlogFactory --model=Blog
+
     

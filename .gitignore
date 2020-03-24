@@ -12,7 +12,6 @@ npm-debug.log
 yarn-error.log
 .idea
 config
-database
 storage
 tests
 .editorconfig

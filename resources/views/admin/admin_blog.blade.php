@@ -57,7 +57,7 @@
         </div>
 
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Open Modal</button>
+{{--        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Open Modal</button>--}}
 
         <!-- Modal -->
         @foreach($posts as $index => $b)
@@ -74,6 +74,7 @@
                             <img src="{{asset('img/'.$b->imagen)}}" width="80%" height="80%" />
                             <p>{{ $b->contenido }}.</p>
                             <p>{{ $b->fecha_creacion }}.</p>
+                            <p>{{ $b->autor }}.</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
