@@ -5,3 +5,6 @@
 #### Base de datos en postgres
 #### Instalar
     composer require laravelcollective/html
+#### Alertas Sweet-alert [documentation](https://realrashid.github.io/sweet-alert/install)  
+    composer require realrashid/sweet-alert
+    

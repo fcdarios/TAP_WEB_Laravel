@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+Use Alert;
+
+Alert::html('Html Title', 'Html Code', 'Type');
 
 class BlogController extends Controller
 {
@@ -15,7 +18,7 @@ class BlogController extends Controller
 
     public function index(){
         $posts = Blog::all();
-        return view("business-casual/blog_index", ['posts'=>$posts]);
+        return view("admin/admin_blog", ['posts'=>$posts]);
     }
 
     /**
@@ -65,7 +68,9 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        // get the nerd
+        $blog = Blog::find($id);
+        return view(('admin/blog_edit'), ['blog'=>$blog]);
     }
 
     /**
@@ -77,7 +82,14 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $blog = Blog::find($id);
+        $blog->titulo = $request->get('titulo');
+        $blog->contenido = $request->get('contenido');
+        $blog->autor = $request->get('autor');
+        $blog->imagen = $request->get('imagen');
+        $blog->fecha_creacion = date('Y-m-d');
+        $blog->save();
+        return redirect('/admin/blog')->with('success', 'Registro actualizado correctamente');
     }
 
     /**
@@ -88,6 +100,8 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blog = Blog::find($id);
+        $blog->delete();
+        return redirect('/admin/blog')->with('success', 'Registro borrado correctamente');
     }
 }
