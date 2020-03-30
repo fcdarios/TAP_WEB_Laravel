@@ -20,7 +20,7 @@ class Blogseeder extends Seeder
 //                'autor' => Str::random(10).'@gmail.com',
 //            ]);
 //        }
-         DB::table('blog')->truncate();
+        DB::table('blog')->truncate();
         factory(App\Blog::class, 500)->create();
     }
 }

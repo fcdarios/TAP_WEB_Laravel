@@ -1,4 +1,3 @@
-@include('sweetalert::alert')
 <!DOCTYPE html>
 <html lang="en">
 
