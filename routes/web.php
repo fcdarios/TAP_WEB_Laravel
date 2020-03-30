@@ -12,3 +12,7 @@ Route::put('/admin/update/{id}', 'BlogController@update')->name('admin.update');
 Route::get('/admin/show/{id}', 'BlogController@show')->name('admin.view');
 Route::delete('/admin/delete/{id}', 'BlogController@destroy')->name('admin.destroy');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

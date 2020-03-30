@@ -23,4 +23,7 @@
 #### Revisar
     https://laravel.com/docs/5.7/authentication#introduction-database-considerations
 
+1. Crear modulo de authentication
+2. Migrar las tablas 
+
     
