@@ -20,10 +20,44 @@
         $(document).ready(function() {
             $('#blog-table').DataTable();
         } );
-#### Revisar
-    https://laravel.com/docs/5.7/authentication#introduction-database-considerations
+#### Crear [Authentication](https://laravel.com/docs/5.7/authentication#introduction-database-considerations)
 
 1. Crear modulo de authentication
 2. Migrar las tablas 
+3. Copiar Constructor del homeController
+
+#### Crear [Middleware](https://laravel.com/docs/7.x/middleware#introduction)
+1. Crear [migracion](https://laravel.com/docs/7.x/migrations) para los roles 
+
+    `php artisan make:migration create_roles_table --create=roles`
+2. Dentro del archivo creado de la migracion agregar la columna nombre
+    
+        `public function up()
+         {
+             Schema::create('roles', function (Blueprint $table) {
+                 $table->id();
+                 $table->string("name");
+                 $table->timestamps();
+             });
+         }`
+3. Agregar columna de id de roles a la migracion de Users
+4. Correr migraciones
+
+        php artisan migrate --path=/database/migrations/2020_03_31_174356_create_roles_table.php
+        
+5. Crear middleware
+        
+        php artisan make:middleware isAdmin        
+6. Agregar en el archivo kernel app/Http/Kernel.php
+
+      `isAdmin' => \App\Http\Middleware\isAdmin::class,`
+      
+7. Agregar al constructor del blogControler
+    
+        $this->middleware('isAdmin');
+    
+
+
+
 
     
