@@ -57,7 +57,18 @@
                             </li>
                         @endif
                     @else
-                        <li><a href="{{route('admin.blog')}}">Admin</a>
+{{--                        <li><a href="{{route('admin.blog')}}">Admin Blog</a>--}}
+{{--                        </li>--}}
+                        <li class="dropdown show">
+                            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Admin
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="btn dropdown-item" href="{{route('admin.blog')}}">Blog</a>
+                                <a class="btn dropdown-item" href="{{route('admin.about')}}">About</a>
+
+                            </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -86,7 +97,7 @@
 
     <div class="container">
 
-        @yield('content')
+        @yield('content')example
 
     </div>
     <!-- /.container -->
@@ -106,6 +117,7 @@
     <script src="{{asset('js/bootstrap.js')}}"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="{{asset('js/business-casual.js')}}"></script>
+    <script src="{{asset('js/about.js')}}"></script>
 
 
     <script>

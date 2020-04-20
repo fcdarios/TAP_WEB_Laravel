@@ -29,25 +29,17 @@
                     </h2>
                     <hr>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>John Smith
-                        <small>Job Title</small>
-                    </h3>
+                <div id="abouts" class="box">
+                    @foreach ($about as $a)
+                        <div class="col-sm-4 text-center">
+                            <img class="img-responsive" src="{{$a->image}}" alt="">
+                            <h3>{{$a->name}}
+                                <small>{{$a->job}}</small>
+                            </h3>
+                        </div>
+                    @endforeach
+                    <div class="clearfix"></div>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>John Smith
-                        <small>Job Title</small>
-                    </h3>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>John Smith
-                        <small>Job Title</small>
-                    </h3>
-                </div>
-                <div class="clearfix"></div>
             </div>
         </div>
 
