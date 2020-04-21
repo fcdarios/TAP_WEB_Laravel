@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\About;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\AbstractPaginator;
+use Yajra\Datatables\Datatables;
 
 class AboutController extends Controller
 {
@@ -20,10 +22,26 @@ class AboutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+    public function index(Request $request)
     {
-        $about = About::all();
-        return view("admin/admin_about", ['about'=>$about]);
+        if ($request->ajax()) {
+            $data = About::all();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="edit" class="edit btn btn-primary btn-sm editJob">Edit</a>';
+
+                    $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="delete" class="btn btn-danger btn-sm deleteJob">Delete</a>';
+
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view("admin/admin_about");
     }
 
     /**
@@ -33,7 +51,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        return view(('admin/about_create'));
+        //
     }
 
     /**
@@ -44,7 +62,10 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        About::updateOrCreate(['id' => $request->id],
+            ['name' => $request->name, 'job' => $request->job, 'image' => $request->image]);
+
+        return response()->json(['success'=>'Successfully.']);
     }
 
     /**
@@ -66,7 +87,8 @@ class AboutController extends Controller
      */
     public function edit($id)
     {
-        //
+        $a = About::find($id);
+        return response()->json($a);
     }
 
     /**
@@ -89,6 +111,7 @@ class AboutController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $a = About::find($id)->delete();
+        return response()->json(['success'=>'Deleted successfully.']);
     }
 }

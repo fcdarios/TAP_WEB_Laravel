@@ -35,28 +35,29 @@
                     </h2>
                     <hr>
                     <p>This contact form is just the form elements, it is not a working form. You will have to make the form work by yourself, or take it out if you can't figure out how to make it work.</p>
-                    <form role="form">
+
+                    <form id="contactForm" role="form">
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label>Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="name" name="name">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Email Address</label>
-                                <input type="email" class="form-control">
+                                <input type="email" class="form-control" id="email" name="email">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Phone Number</label>
-                                <input type="tel" class="form-control">
+                                <input type="tel" class="form-control" id="phone" name="phone">
                             </div>
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
                                 <label>Message</label>
-                                <textarea class="form-control" rows="6"></textarea>
+                                <textarea class="form-control" rows="6" id="message" name="message"></textarea>
                             </div>
                             <div class="form-group col-lg-12">
-                                <input type="hidden" name="save" value="contact">
-                                <button type="submit" class="btn btn-default">Submit</button>
+
+                                <button id="btnContact" type="submit" class="btn btn-default">Submit</button>
                             </div>
                         </div>
                     </form>

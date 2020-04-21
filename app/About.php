@@ -10,4 +10,6 @@ class About extends Model
     protected $table = 'about';
     public $timestamps = false;
 
+    protected $fillable = ['name','job','image'];
+
 }

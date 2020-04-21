@@ -15,63 +15,72 @@
                     </h2>
                     <hr>
                 </div>
+
                 <div class="col-lg-12">
-                    <a href="{{ route('about.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> New</a>
+                    <a id="aboutCreate" href="{{ route('about.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> New</a>
                 </div>
-                <table id="about-table" class="table">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Puesto</th>
-                        <th scope="col">Imagen</th>
-                        <th scope="col"><a href="#">View</a></th>
-                        <th scope="col"><a href="#">Edit</a></th>
-                        <th scope="col"><a href="#">Delete</a></th>
-                      </tr>
+
+                <table id="table" class="table table-bordered data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>name</th>
+                            <th>job</th>
+                            <th>image</th>
+                            <th width="300px">Accion</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        @foreach ($about as $index => $a)
-                            <tr>
-                                <td >{{$a->name}}</td>
-                                <td >{{$a->job}}</td>
-                                <td >{{$a->image}}</td>
-                                <td>
-                                    <a href="#myModal{{$index}}" data-toggle="modal" data-target="#myModal{{$index}}"><i class="fas fa-eye fa-2x"></i></a>
-                                </td>
-                                <td ><a href="" class="btn btn-warning"><i class="fas fa-edit"></i></a></td>
-                                <td >
-                                    {{ Form::open(array('url' => '/admin/delete/' . $a->id, 'class' => 'pull-right')) }}
-                                        {{ Form::hidden('_method', 'DELETE') }}
-                                        {{ Form::button('<i class="fa fa-minus-circle" aria-hidden="true"></i>', ['class' => 'btn btn-danger', 'type' => 'submit']) }}
-                                    {{ Form::close() }}
-                                </td>
-                            </tr>
-                        @endforeach
+
                     </tbody>
                 </table>
+
+                    <div class="modal fade" id="ajaxModel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="modelHeading"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="aboutForm" name="aboutorm" class="form-horizontal">
+                                        <input type="hidden" name="id" id="id">
+                                        <div class="form-group">
+                                            <label for="name" class="col-sm-2 control-label">Name</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="" required="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Job</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="job" name="job" placeholder="Job" value="" required="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Image</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="image" name="image" placeholder="Image" value="" required="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn btn-primary" id="saveBtn" value="New">Save changes
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
             </div>
         </div>
 
-        <!-- Modal -->
-        @foreach ($about as $index => $b)
-            <div id="myModal{{$index}}" class="modal fade" role="dialog">
-                <div class="modal-dialog">
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">{{ $b->name }}</h4>
-                        </div>
-                        <div class="modal-body">
-                            <img src="{{asset($b->image)}}" width="80%" height="80%" />
-                            <p>{{ $b->job }}.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
+
     @endsection
+
+
